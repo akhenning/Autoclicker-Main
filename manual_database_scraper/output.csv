@@ -1,0 +1,8 @@
+ICO,NAME,DESC_INGAME,DESC_DETAILED,CHARACTERS,RARITY,SIBLINGS,ACTIVATION,BASE_COST,CONDITIONS,COND_LINK,DURATION,EFFECT1,EFFECT2,EFFECT3
+https://gametora.com/images/umamusume/skill_icons/utx_ico_skill_10011.png,Spring Runner ◎,Increase performance in spring.,Your Speed stat is increased by 60 in Spring,[''],Normal,"['Spring Runner ○', 'Spring Runner ×', 'First Breeze of Spring']",Guaranteed,110,"season==1
+@
+season==5",https://gametora.com/umamusume/skill-condition-viewer?skill=200171,Infinite,Speed Stat Up (60),,
+https://gametora.com/images/umamusume/skill_icons/utx_ico_skill_10011.png,Spring Runner ○,Moderately increase performance in spring.,Your Speed stat is increased by 40 in Spring,"['Tokai Teio', 'https://gametora.com/images/umamusume/characters/thumb/chara_stand_1003_100302.png']",Normal,"['Spring Runner ◎', 'Spring Runner ×', 'First Breeze of Spring']",Guaranteed,90,"season==1
+@
+season==5",https://gametora.com/umamusume/skill-condition-viewer?skill=200172,Infinite,Speed Stat Up (40),,
+https://gametora.com/images/umamusume/skill_icons/utx_ico_skill_10011.png,Summer Runner ◎,Increase performance in summer.,Your Speed stat is increased by 60 in Summer,[''],Normal,"['Summer Runner ○', 'Summer Runner ×', 'Summer Gale']",Guaranteed,110,season==2,https://gametora.com/umamusume/skill-condition-viewer?skill=200181,Infinite,Speed Stat Up (60),,
