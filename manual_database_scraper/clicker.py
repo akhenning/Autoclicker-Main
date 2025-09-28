@@ -1,15 +1,24 @@
-# requires pip install pynput
+# first is browser, second is code
+
+# requires pip install pynput and opencv-python
 # If pip is not recognized, but python is installed, probably just need to add the python Scripts folder to path
 import time
 import threading
 from pynput.mouse import Button, Controller, Listener
 import keyboard
 import pyperclip
+#import ImageGrab
+#import opencv
+import cv2
+import numpy as np
 
 from pynput.keyboard import KeyCode, Key #, ListenerListener
-
-
+    
 import pyautogui
+import random
+
+
+
 
 # seconds. Setting to 0 may crash things
 delay = 4/10
@@ -61,7 +70,16 @@ class Sequence(threading.Thread):
 
     def test_offset(self):
         time.sleep(.05)
-        mouse.move(52, 264)
+        #mouse.scroll(0, .01)
+        # first number is the important one, x position of words
+        im = pyautogui.screenshot(region=(1231, 237, 0, 400))
+        
+        image_np = np.array(im)
+        print(image_np)
+        #image_cv = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
+
+        # Save the image using OpenCV
+        #cv2.imwrite(str(random.randint(0, 99999))+"_screenshot.png", image_cv)
         
     def exit(self):
         self.stop_clicking()
@@ -97,7 +115,7 @@ class CopySequence(Sequence):
                 #time.sleep(1)
                 mouse.click(Button.left)
                 
-                pyperclip.copy(pyperclip.paste().replace("\n",""))
+                pyperclip.copy(pyperclip.paste().replace("\n","") + "\n")
                 
                 time.sleep(.1)
                 #time.sleep(1)
@@ -108,10 +126,10 @@ class CopySequence(Sequence):
                 time.sleep(.1)
                 #time.sleep(1)
                 keyboard.press_and_release('control + v')
-                time.sleep(.15)
+                time.sleep(.05)
                 #time.sleep(1)
-                keyboard.press_and_release('enter')
-                time.sleep(.1)
+                #keyboard.press_and_release('enter')
+                #time.sleep(.1)
                 #time.sleep(1)
                 # back to webpage
                 mouse.position = (1093, 1057)
@@ -121,7 +139,7 @@ class CopySequence(Sequence):
                 #time.sleep(1)
                 mouse.position = (pos)
 
-                
+                #.scroll(0, 5)
                 self.remaining -=1
 
             time.sleep(0.1)
@@ -147,8 +165,8 @@ def on_click(x, y, button, pressed):
         click_thread.click_twice()
     if button == Button.middle and pressed:
         click_thread.stop_clicking()
-    #if button == Button.left and pressed:
-    #    click_thread.test_offset()
+    if button == Button.left and pressed:
+        click_thread.test_offset()
   
 # on_press method takes 
 # key as argument
